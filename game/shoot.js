@@ -54,7 +54,7 @@ function bullet_collision()
         }
 
         if ((bullet.position.x >= enemy1.graphic.position.x - 10 && bullet.position.x <= enemy1.graphic.position.x + 10)||
-            (bullet.position.y >= enemy1.graphic.position.y - 10 && bullet.position.x <= enemy1.graphic.position.y + 10))
+            (bullet.position.y >= enemy1.graphic.position.y - 10 && bullet.position.y <= enemy1.graphic.position.y + 10))
         {
             enemy1.dead();
             scene.remove(enemy1.graphic);
