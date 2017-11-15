@@ -18,6 +18,12 @@ function shoot()
         bullet.position.y = player1.graphic.position.y + 7.5 * Math.sin(player1.direction);
         bullet.angle = player1.direction;
         player1.bullets.push(bullet);
+        if ((bullet.position.x == enemy1.graphic.position.x + 10 && bullet.position.y == enemy1.graphic.position.y + 10)||
+        (bullet.position.x == enemy1.graphic.position.x - 10 && bullet.position.y == enemy1.graphic.position.y - 10))
+        {
+            enemy1.dead();
+            scene.remove(enemy1.graphic);
+        }
         bulletTime1 = clock.getElapsedTime();
     } 
 
@@ -68,9 +74,11 @@ function player_collision()
     if ( y > HEIGHT )
         player1.graphic.position.y -= y - HEIGHT;
 
-    if (player1.graphic.position.x == enemy1.graphic.position.x && player1.graphic.position.y == enemy1.graphic.position.y)
+    if ((player1.graphic.position.x == enemy1.graphic.position.x + 10 && player1.graphic.position.y == enemy1.graphic.position.y + 10)
+    || (player1.graphic.position.x == enemy1.graphic.position.x - 10 && player1.graphic.position.y == enemy1.graphic.position.y - 10) )
     {//enemy1.dead();
-        enemy1.life -= 1;}
+        enemy1.life -= 1;
+    console.log(enemy1.life);}
 
 }
 
@@ -98,6 +106,7 @@ function player_falling()
             && (y < mtileY))
         {
             player1.dead();
+            player1.life -= 1;
         }
     }
 
