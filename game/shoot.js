@@ -68,6 +68,10 @@ function player_collision()
     if ( y > HEIGHT )
         player1.graphic.position.y -= y - HEIGHT;
 
+    if (player1.graphic.position.x == enemy1.graphic.position.x && player1.graphic.position.y == enemy1.graphic.position.y)
+    {//enemy1.dead();
+        enemy1.life -= 1;}
+
 }
 
 function player_falling()

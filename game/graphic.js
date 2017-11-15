@@ -27,6 +27,10 @@ function init()
     
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
     scene.add(player1.graphic);
+    enemy1 = new Enemy("enemy1",0x4b0082, new THREE.Vector2(0, 50), 0);
+    scene.add(enemy1.graphic);
+    enemy1.graphic.position.x = 35;
+    enemy1.graphic.position.y = 50;
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
     scene.add(light1);
