@@ -18,12 +18,7 @@ function shoot()
         bullet.position.y = player1.graphic.position.y + 7.5 * Math.sin(player1.direction);
         bullet.angle = player1.direction;
         player1.bullets.push(bullet);
-        if ((bullet.position.x == enemy1.graphic.position.x + 10 && bullet.position.y == enemy1.graphic.position.y + 10)||
-        (bullet.position.x == enemy1.graphic.position.x - 10 && bullet.position.y == enemy1.graphic.position.y - 10))
-        {
-            enemy1.dead();
-            scene.remove(enemy1.graphic);
-        }
+
         bulletTime1 = clock.getElapsedTime();
     } 
 
@@ -56,6 +51,13 @@ function bullet_collision()
             scene.remove(player1.bullets[i]);
             player1.bullets.splice(i, 1);
             i--;
+        }
+
+        if ((bullet.position.x >= enemy1.graphic.position.x - 10 && bullet.position.x <= enemy1.graphic.position.x + 10)||
+            (bullet.position.y >= enemy1.graphic.position.y - 10 && bullet.position.x <= enemy1.graphic.position.y + 10))
+        {
+            enemy1.dead();
+            scene.remove(enemy1.graphic);
         }
     }
 
